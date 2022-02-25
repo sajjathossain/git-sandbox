@@ -2,7 +2,7 @@
 
 * Table of contents :toc:
 - [[#start-the-engine][Start the engine]]
-  - [[#initialize-git-in-an-empty-firectory][Initialize git in an empty firectory]]
+  - [[#initialize-git-in-an-empty-directory][Initialize git in an empty directory]]
   - [[#clone-a-repo][Clone a repo]]
   - [[#add-all-changed-files][Add all changed files]]
   - [[#add-a-message-to-the-added-files][Add a message to the added files]]
@@ -23,7 +23,7 @@
   - [[#using-rebase-command][Using *rebase* command]]
 
 * Start the engine
-** Initialize git in an empty firectory
+** Initialize git in an empty directory
 You can/should initalize git after you've initalized a project or after a certain progress.
 Best practice is to initialize it instantly. And keep a track of the project.
 *** Syntax/Example
@@ -136,13 +136,12 @@ Using this command you can switch between multiple branches.
 
 * Merge branch
 ** Using *merge* command
-[ *Note:* If you use the *merge* command it's going to overwrite the previous changes.]
 *** Syntax/Example
 #+begin_src bash
  git merge branch-name
 #+end_src
 ** Using *rebase* command
-It is the process of moving or combining a sequence of commits to a new base commit
+It is the process of moving or combining a sequence of commits to a new base commit.
 *** Syntax/Example
 #+begin_src bash
  git rebase branch-name
