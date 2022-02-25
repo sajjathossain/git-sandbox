@@ -1,0 +1,149 @@
+#+title: Basics of Git & Github
+
+* Table of contents :toc:
+- [[#start-the-engine][Start the engine]]
+  - [[#initialize-git-in-an-empty-firectory][Initialize git in an empty firectory]]
+  - [[#clone-a-repo][Clone a repo]]
+  - [[#add-all-changed-files][Add all changed files]]
+  - [[#add-a-message-to-the-added-files][Add a message to the added files]]
+  - [[#alternative-git-add--git-commit][Alternative (git add & git commit)]]
+  - [[#push-the-changes][Push the changes]]
+  - [[#pull-from-a-branch][Pull from a branch]]
+- [[#create-aliases][Create aliases]]
+  - [[#syntax][Syntax]]
+  - [[#example][Example]]
+- [[#advanced-commands][Advanced commands]]
+  - [[#change-commit-message][Change commit message]]
+  - [[#stash-the-changes][Stash the changes]]
+- [[#working-with-branches][Working with branches]]
+  - [[#create-a-branch][Create a branch]]
+  - [[#switch-branch][Switch branch]]
+- [[#merge-branch][Merge branch]]
+  - [[#using-merge-command][Using *merge* command]]
+  - [[#using-rebase-command][Using *rebase* command]]
+
+* Start the engine
+** Initialize git in an empty firectory
+You can/should initalize git after you've initalized a project or after a certain progress.
+Best practice is to initialize it instantly. And keep a track of the project.
+*** Syntax/Example
+#+begin_src bash
+ git init
+#+end_src
+** Clone a repo
+Alternatively you can clone an existing repo from a git client. For this we're gonna create and
+use a demo repo from my account.
+*** Syntax/Example
+- With no directory specified
+#+begin_src bash
+ git clone https://github.com/sajjathossain/git-sandbox.git
+#+end_src
+
+- In a specific directory
+#+begin_src bash
+ git clone https://github.com/sajjathossain/git-sandbox.git ~/Desktop/git-demo
+#+end_src
+** Add all changed files
+Add all the changes that you've been working on.
+*** Syntax/Example
+#+begin_src bash
+ git add .
+#+end_src
+** Add a message to the added files
+Add a message that describes what changes you've made in this commit since the last commit.
+*** Syntax/Example
+#+begin_src bash
+ git commit -m "message"
+#+end_src
+** Alternative (git add & git commit)
+This is the alternative and short hand command of *git add + git commit*. It combines them both.
+*** Syntax/Example
+#+begin_src bash
+ git commit -am "message"
+#+end_src
+** Push the changes
+Push all the changes (current commit) that are on your local machine and hasn't been pushed to remote branch.
+*** Syntax/Example
+#+begin_src bash
+ git push -u origin branch-name
+#+end_src
+
+** Pull from a branch
+Also there might be some changes that your team has pushed and you will need them in your local machine.
+Here's how it's done.
+*** Syntax/Example
+#+begin_src bash
+ git pull origin branch-name
+#+end_src
+* Create aliases
+Using aliases you can shorten you git commands. Here's how to do it with example:
+** Syntax
+#+begin_src bash
+ git config --global alias.your_alias "actual_flag(s)"
+#+end_src
+** Example
+add alias for git commit and add onliner that we saw earlier
+*** Setup
+#+begin_src bash
+ git config --global alias.ac "commit am"
+#+end_src
+*** In action
+#+begin_src bash
+ git ac "message"
+#+end_src
+
+* Advanced commands
+** Change commit message
+Sometimes you may add commit message that is wrong or there's a mistake. Here's how you can change
+the commit message.
+[ *Note:* Never change a commit message after you've pushed the changes. ]
+*** Syntax/Example
+#+begin_src bash
+ git commit --amend -m "updated message"
+#+end_src
+
+** Stash the changes
+Using the *stash* command you can store the unstaged changes so that they don't get added in the next *staging*.
+*** Store the changes
+It's gonna store the changes.
+**** Syntax/Example
+#+begin_src bash
+ git stash
+#+end_src
+*** Pop the changes
+It's gonna add back those stored changes.
+**** Syntax/Example
+#+begin_src bash
+ git stash pop
+#+end_src
+
+* Working with branches
+While working on a team you will work on different features. And these features will have there own branches.
+Here's how to work with them.
+** Create a branch
+It's gonna create a branch and switch to it.
+*** Syntax/Example
+#+begin_src bash
+ git checkout -b branch-name
+#+end_src
+** Switch branch
+Using this command you can switch between multiple branches.
+[ *Note:* All of your changes in the current branch must be *staged and commited* or *stashed.* Unless you won't be able to switch.]
+*** Syntax/Example
+#+begin_src bash
+ git checkout branch-name
+#+end_src
+
+* Merge branch
+** Using *merge* command
+[ *Note:* If you use the *merge* command it's going to overwrite the previous changes.]
+*** Syntax/Example
+#+begin_src bash
+ git merge branch-name
+#+end_src
+** Using *rebase* command
+It is the process of moving or combining a sequence of commits to a new base commit
+*** Syntax/Example
+#+begin_src bash
+ git rebase branch-name
+#+end_src
